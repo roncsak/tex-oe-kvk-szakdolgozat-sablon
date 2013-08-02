@@ -68,6 +68,3 @@
 \pagestyle{normal}
 %\AtBeginDocument{\thispagestyle{firstpage}}
 %\@ptsize{2}
-
-%\RequirePackage[top=0mm, bottom=0mm, left=0mm, right=0mm]{geometry}
-%\usepackage[top=0mm, bottom=0mm, left=0mm, right=0mm]{geometry}
