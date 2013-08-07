@@ -5,12 +5,55 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{anyfontsize}
+\usepackage{setspace}			% doublespacing | onehalfspacing | singlespacing
 \usepackage{graphicx}
 \usepackage{lipsum}
 \usepackage{ifthen}
+\usepackage{parskip}
 
-\renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
+%\def\@@ptsize{12pt}
+
+\renewcommand{\normalsize}{
+	\@setfontsize\normalsize\@xpt\@xiipt
+	\fontsize{12pt}{14.4pt}\selectfont
+	\let\@listi\@listI
+}
+\newcommand{\large}{
+	\fontsize{14pt}{16.8pt}\selectfont
+}
+\newcommand{\Large}{\fontsize{16pt}{19.2pt}\selectfont}
 \newcommand\thepage{\arabic{page}}
+
+\newcounter{section}
+\newcounter{subsection}[section]										% reset subsection counter		when section counter	is incrementing
+\newcounter{subsubsection}[subsection]									% reset subsubsection counter	when subsection counter	is incrementing
+%\renewcommand\thesection{\@arabic\c@section}
+\newcommand{\section}[1]{
+	\clearpage
+	\refstepcounter{section}											% used for labels and cross referencing
+	\begin{center}
+		\large
+		\textbf{\arabic{section}. \MakeUppercase{#1}}					% TODO capital letters
+	\end{center}
+	\par\addvspace{2\baselineskip}
+	% \textnormal\normalsize
+	%\normalsize
+}
+\newcommand{\subsection}[1]{
+	\refstepcounter{subsection}											% used for labels and cross referencing
+	\par\addvspace{\baselineskip}										% add an empty line before section title
+	\textbf{\arabic{section}.\arabic{subsection}. #1}					% 
+	\par\addvspace{\baselineskip}										% add an empty line after section title
+}
+\newcommand{\subsubsection}[1]{
+	\refstepcounter{subsubsection}										% used for labels and cross referencing
+	\par\addvspace{\baselineskip}										% add an empty line before section title
+	\textbf{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. #1}					% 
+	\par\addvspace{\baselineskip}										% add an empty line after section title
+	%\arabic{section}.\arabic{subsection}.\arabic{subsubsection}. #1 \\	% 
+}
 \newif\ifrtp
 %\setlength{\textwidth}{210mm}
 %\setlength{\textheight}{297mm}
